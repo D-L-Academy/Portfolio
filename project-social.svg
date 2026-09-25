@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Social media and brand growth preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e2128"/><stop offset="1" stop-color="#121418"/></linearGradient>
+    <radialGradient id="g1" cx="0.9" cy="0.15" r="0.7"><stop offset="0" stop-color="#ff6a1a" stop-opacity="0.45"/><stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="0.05" cy="0.95" r="0.6"><stop offset="0" stop-color="#2f7bff" stop-opacity="0.4"/><stop offset="1" stop-color="#2f7bff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a3d" stop-opacity="0.5"/><stop offset="1" stop-color="#ff8a3d" stop-opacity="0"/></linearGradient>
+    <linearGradient id="or" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9142"/><stop offset="1" stop-color="#ff5a0a"/></linearGradient>
+    <linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5cc8ff"/><stop offset="1" stop-color="#2266ff"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/><rect width="800" height="600" fill="url(#g1)"/><rect width="800" height="600" fill="url(#g2)"/>
+  <rect x="50" y="50" width="700" height="290" rx="20" fill="#ffffff" fill-opacity="0.045" stroke="#fff" stroke-opacity="0.07"/>
+  <rect x="78" y="76" width="110" height="12" rx="6" fill="#fff" opacity="0.6"/>
+  <rect x="78" y="100" width="150" height="30" rx="8" fill="#fff" opacity="0.92"/>
+  <g stroke="#fff" stroke-opacity="0.07"><line x1="78" y1="180" x2="722" y2="180"/><line x1="78" y1="230" x2="722" y2="230"/><line x1="78" y1="280" x2="722" y2="280"/></g>
+  <path d="M78 300 C140 296 170 270 220 262 C280 252 300 276 350 250 C410 220 440 230 490 196 C550 156 590 170 640 130 C680 104 700 100 722 92 L722 320 L78 320 Z" fill="url(#area)"/>
+  <path d="M78 300 C140 296 170 270 220 262 C280 252 300 276 350 250 C410 220 440 230 490 196 C550 156 590 170 640 130 C680 104 700 100 722 92" fill="none" stroke="#ff8a3d" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="722" cy="92" r="9" fill="#ff8a3d"/><circle cx="722" cy="92" r="16" fill="#ff8a3d" opacity="0.25"/>
+  <!-- post cards -->
+  <rect x="50" y="368" width="210" height="182" rx="18" fill="#252932"/><rect x="66" y="384" width="178" height="96" rx="12" fill="url(#or)" opacity="0.85"/><circle cx="82" cy="512" r="12" fill="#5cc8ff"/><rect x="102" y="504" width="90" height="9" rx="4.5" fill="#fff" opacity="0.6"/><rect x="102" y="520" width="60" height="7" rx="3.5" fill="#fff" opacity="0.3"/>
+  <rect x="285" y="368" width="210" height="182" rx="18" fill="#252932"/><rect x="301" y="384" width="178" height="96" rx="12" fill="url(#bl)" opacity="0.85"/><circle cx="317" cy="512" r="12" fill="#ff9142"/><rect x="337" y="504" width="90" height="9" rx="4.5" fill="#fff" opacity="0.6"/><rect x="337" y="520" width="60" height="7" rx="3.5" fill="#fff" opacity="0.3"/>
+  <rect x="520" y="368" width="230" height="182" rx="18" fill="#252932"/>
+  <g fill="none" stroke-width="12" stroke-linecap="round"><circle cx="600" cy="459" r="46" stroke="#ffffff" stroke-opacity="0.1"/><path d="M600 413 A46 46 0 1 1 556 473" stroke="#ff8a3d"/></g>
+  <rect x="668" y="430" width="64" height="12" rx="6" fill="#fff" opacity="0.7"/><rect x="668" y="452" width="48" height="9" rx="4.5" fill="#fff" opacity="0.3"/><rect x="668" y="472" width="56" height="9" rx="4.5" fill="#fff" opacity="0.3"/>
+</svg>

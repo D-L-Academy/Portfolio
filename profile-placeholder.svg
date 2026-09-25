@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Placeholder professional headshot">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22262e"/>
+      <stop offset="1" stop-color="#121418"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0.12" cy="0.18" r="0.7">
+      <stop offset="0" stop-color="#2f7bff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2f7bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowOrange" cx="0.92" cy="0.86" r="0.75">
+      <stop offset="0" stop-color="#ff6a1a" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="jacket" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#343945"/>
+      <stop offset="0.55" stop-color="#242830"/>
+      <stop offset="1" stop-color="#181b21"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9a17c"/>
+      <stop offset="0.6" stop-color="#c58a66"/>
+      <stop offset="1" stop-color="#a86f4e"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8f5c40"/>
+      <stop offset="1" stop-color="#b47a58"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b241f"/>
+      <stop offset="1" stop-color="#0f0c0a"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1eee8"/>
+      <stop offset="1" stop-color="#cfcac2"/>
+    </linearGradient>
+    <linearGradient id="rimBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4aa3ff" stop-opacity="0.75"/>
+      <stop offset="0.35" stop-color="#4aa3ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rimOrange" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#ff8a3d" stop-opacity="0.7"/>
+      <stop offset="0.35" stop-color="#ff8a3d" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="headClip"><ellipse cx="300" cy="360" rx="96" ry="118"/></clipPath>
+  </defs>
+
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <rect width="600" height="750" fill="url(#glowBlue)"/>
+  <rect width="600" height="750" fill="url(#glowOrange)"/>
+
+  <!-- shoulders / jacket -->
+  <path d="M30 750 C30 650 110 596 218 572 L382 572 C490 596 570 650 570 750 Z" fill="url(#jacket)"/>
+  <path d="M30 750 C30 650 110 596 218 572 L260 572 C170 610 120 660 110 750 Z" fill="url(#rimBlue)"/>
+  <path d="M570 750 C570 650 490 596 382 572 L340 572 C430 610 480 660 490 750 Z" fill="url(#rimOrange)"/>
+
+  <!-- shirt + collar -->
+  <path d="M250 566 L350 566 L326 700 L300 730 L274 700 Z" fill="url(#shirt)"/>
+  <path d="M232 560 L290 640 L262 660 L214 590 Z" fill="#e6e2db"/>
+  <path d="M368 560 L310 640 L338 660 L386 590 Z" fill="#d7d2ca"/>
+  <!-- lapels -->
+  <path d="M214 578 L262 660 L300 730 L236 750 L170 750 C176 690 190 624 214 578 Z" fill="#1c1f26"/>
+  <path d="M386 578 L338 660 L300 730 L364 750 L430 750 C424 690 410 624 386 578 Z" fill="#20242b"/>
+
+  <!-- neck -->
+  <path d="M262 470 L338 470 L342 574 C326 600 274 600 258 574 Z" fill="url(#neck)"/>
+  <path d="M262 500 C285 540 315 540 338 500 L338 470 L262 470 Z" fill="#7d4d34" opacity="0.5"/>
+
+  <!-- ears -->
+  <ellipse cx="205" cy="372" rx="14" ry="26" fill="#b57b59"/>
+  <ellipse cx="395" cy="372" rx="14" ry="26" fill="#a26c4c"/>
+
+  <!-- head -->
+  <ellipse cx="300" cy="360" rx="96" ry="118" fill="url(#skin)"/>
+  <g clip-path="url(#headClip)">
+    <ellipse cx="392" cy="380" rx="90" ry="130" fill="#7a4b32" opacity="0.28"/>
+    <ellipse cx="240" cy="330" rx="60" ry="80" fill="#f0bd98" opacity="0.18"/>
+  </g>
+
+  <!-- hair -->
+  <path d="M202 348 C190 250 236 208 302 208 C372 208 414 250 398 350 C388 312 372 292 350 282 C318 292 262 292 232 276 C216 296 206 322 202 348 Z" fill="url(#hair)"/>
+
+  <!-- soft facial features -->
+  <path d="M250 340 Q266 332 282 340" fill="none" stroke="#2a1f19" stroke-width="5" stroke-linecap="round"/>
+  <path d="M318 340 Q334 332 350 340" fill="none" stroke="#2a1f19" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="266" cy="366" rx="9" ry="5.5" fill="#1a1411"/>
+  <ellipse cx="334" cy="366" rx="9" ry="5.5" fill="#1a1411"/>
+  <path d="M300 372 C296 398 292 410 288 418 C296 424 306 424 314 418" fill="none" stroke="#8f5a3d" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <path d="M270 448 Q300 466 330 448" fill="none" stroke="#7a3f2c" stroke-width="5" stroke-linecap="round"/>
+</svg>

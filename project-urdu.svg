@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Urdu customer support desk preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e2128"/><stop offset="1" stop-color="#111317"/></linearGradient>
+    <radialGradient id="g1" cx="0.1" cy="0.1" r="0.7"><stop offset="0" stop-color="#ff6a1a" stop-opacity="0.4"/><stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="0.95" cy="0.95" r="0.7"><stop offset="0" stop-color="#2f7bff" stop-opacity="0.45"/><stop offset="1" stop-color="#2f7bff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="or" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9142"/><stop offset="1" stop-color="#ff5a0a"/></linearGradient>
+    <linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5cc8ff"/><stop offset="1" stop-color="#2266ff"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/><rect width="800" height="600" fill="url(#g1)"/><rect width="800" height="600" fill="url(#g2)"/>
+  <rect x="150" y="50" width="500" height="500" rx="26" fill="#22262d" stroke="#fff" stroke-opacity="0.09"/>
+  <rect x="150" y="50" width="500" height="80" rx="26" fill="#2a2e36"/><rect x="150" y="104" width="500" height="26" fill="#2a2e36"/>
+  <circle cx="200" cy="90" r="22" fill="url(#or)"/><rect x="236" y="76" width="110" height="11" rx="5.5" fill="#fff" opacity="0.8"/><rect x="236" y="96" width="70" height="8" rx="4" fill="#5cff9a" opacity="0.7"/>
+  <!-- bubbles -->
+  <g>
+    <rect x="182" y="160" width="300" height="72" rx="20" fill="#333842"/>
+    <text x="332" y="205" font-family="'Noto Naskh Arabic','Segoe UI',Tahoma,Arial,'DejaVu Sans',sans-serif" font-size="21" fill="#fff" fill-opacity="0.92" text-anchor="middle">السلام علیکم! میں مدد کروں؟</text>
+    <rect x="348" y="252" width="270" height="72" rx="20" fill="url(#bl)"/>
+    <rect x="374" y="278" width="170" height="10" rx="5" fill="#fff" opacity="0.9"/><rect x="374" y="298" width="120" height="9" rx="4.5" fill="#fff" opacity="0.6"/>
+    <rect x="182" y="344" width="290" height="72" rx="20" fill="#333842"/>
+    <text x="327" y="389" font-family="'Noto Naskh Arabic','Segoe UI',Tahoma,Arial,'DejaVu Sans',sans-serif" font-size="21" fill="#fff" fill-opacity="0.92" text-anchor="middle">آپ کا آرڈر روانہ ہو گیا ہے</text>
+    <rect x="348" y="436" width="270" height="48" rx="20" fill="url(#or)"/>
+    <rect x="374" y="456" width="150" height="9" rx="4.5" fill="#fff" opacity="0.9"/>
+  </g>
+  <rect x="182" y="500" width="320" height="34" rx="17" fill="#ffffff" fill-opacity="0.06"/>
+  <circle cx="614" cy="517" r="17" fill="url(#or)"/>
+</svg>
