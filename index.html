@@ -4,12 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jawad | Virtual Assistant &amp; Network Engineer</title>
-  <meta name="description" content="Jawad is a Virtual Assistant and Network Engineer with 3 years of experience, turning brands into profitable businesses and protecting them with advanced-level network security.">
+  <meta name="description" content="Jawad is a Virtual Assistant and Network Engineer with 5+ years of experience, turning brands into profitable businesses and protecting them with advanced-level network security.">
   <meta name="theme-color" content="#131417">
   <meta property="og:title" content="Jawad | Virtual Assistant &amp; Network Engineer">
   <meta property="og:description" content="Turning brands into profitable businesses and protecting them with advanced-level network security.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="author" content="Jawad">
+  <link rel="canonical" href="https://d-l-academy.github.io/Portfolio/">
+  <meta property="og:url" content="https://d-l-academy.github.io/Portfolio/">
+  <meta property="og:site_name" content="Jawad | Portfolio">
+  <meta property="og:image" content="https://d-l-academy.github.io/Portfolio/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +27,19 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
   <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jawad",
+    "url": "https://d-l-academy.github.io/Portfolio/",
+    "image": "https://d-l-academy.github.io/Portfolio/assets/images/profile-photo.jpg",
+    "jobTitle": ["Virtual Assistant", "Network Engineer"],
+    "email": "mailto:jawadkhanmehsood@gmail.com",
+    "knowsLanguage": ["English", "Urdu", "Pashto"],
+    "knowsAbout": ["CCNA", "CCNP", "MCSE", "Firewall management", "Network security", "Amazon e-commerce", "Virtual assistance"]
+  }
+  </script>
 </head>
 <body>
 
@@ -97,22 +119,22 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="status rise" style="--d:.1s"><span class="status__dot"></span>Open to new projects</p>
+          <p class="status rise" style="--d:.1s"><span class="status__dot"></span><span data-edit="home.heroStatus">Open to new projects</span></p>
 
-          <h1 class="hero__name rise" id="hero-title" style="--d:.2s"><span class="hero__hello">Hi, I'm</span>Jawad</h1>
+          <h1 class="hero__name rise" id="hero-title" style="--d:.2s"><span class="hero__hello" data-edit="home.heroHello">Hi, I'm</span><span data-edit="home.heroName">Jawad</span></h1>
 
           <p class="hero__role rise" style="--d:.35s">
-            <span class="text-orange">Virtual Assistant</span><span class="amp">&amp;</span><span class="text-blue">Network Engineer</span>
+            <span class="text-orange" data-edit="home.heroRoleA">Virtual Assistant</span><span class="amp">&amp;</span><span class="text-blue" data-edit="home.heroRoleB">Network Engineer</span>
           </p>
 
           <p class="hero__tagline rise" style="--d:.5s">
-            <span class="hl hl--orange">Turning Every Single Brand Into Profitable VA</span> &amp;
-            <span class="hl hl--blue">Providing Advanced Level Security As a Network Engineer.</span>
+            <span class="hl hl--orange" data-edit="home.taglineA">Turning every brand into a profitable business as a VA</span> &amp;
+            <span class="hl hl--blue" data-edit="home.taglineB">providing advanced-level security as a Network Engineer.</span>
           </p>
 
           <div class="hero__actions rise" style="--d:.65s">
-            <a class="btn btn--primary" href="portfolio.html">View My Work</a>
-            <a class="btn btn--ghost" href="contact.html">Let's Talk</a>
+            <a class="btn btn--primary" href="portfolio.html" data-edit="home.heroCta1">View My Work</a>
+            <a class="btn btn--ghost" href="contact.html" data-edit="home.heroCta2">Let's Talk</a>
           </div>
 
           <div class="langs rise" style="--d:.8s">
@@ -130,9 +152,7 @@
             <div class="portrait__frame">
               <div class="portrait__inner">
                 <div class="portrait__photo">
-                  <!-- PLACEHOLDER PHOTO: replace assets/images/profile-photo.jpg with your real photo
-                       (keep the same file name, or update this path). The Admin Panel will manage it later. -->
-                  <img src="assets/images/profile-photo.jpg" width="600" height="750" alt="Portrait of Jawad" fetchpriority="high">
+                  <img src="assets/images/profile-photo.jpg" data-img-key="profile-photo" width="600" height="750" alt="Portrait of Jawad" fetchpriority="high">
                 </div>
               </div>
             </div>
@@ -160,23 +180,23 @@
         <div class="stats__panel reveal">
           <div class="stat stat--orange">
             <div class="stat__icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-briefcase"/></svg></div>
-            <p class="stat__num"><span data-count="10">10</span><span class="stat__suffix">+</span></p>
-            <p class="stat__label">Brands worked with</p>
+            <p class="stat__num"><span data-count="10" data-edit="home.stat1Num">10</span><span class="stat__suffix">+</span></p>
+            <p class="stat__label" data-edit="home.stat1Label">Brands worked with</p>
           </div>
           <div class="stat stat--blue">
             <div class="stat__icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></div>
-            <p class="stat__num"><span data-count="7">7</span><span class="stat__suffix">+</span></p>
-            <p class="stat__label">Happy clients</p>
+            <p class="stat__num"><span data-count="7" data-edit="home.stat2Num">7</span><span class="stat__suffix">+</span></p>
+            <p class="stat__label" data-edit="home.stat2Label">Happy clients</p>
           </div>
           <div class="stat stat--orange">
             <div class="stat__icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></div>
-            <p class="stat__num"><span data-count="3">3</span></p>
-            <p class="stat__label">Years of experience</p>
+            <p class="stat__num"><span data-count="5" data-edit="home.stat3Num">5</span><span class="stat__suffix">+</span></p>
+            <p class="stat__label" data-edit="home.stat3Label">Years of experience</p>
           </div>
           <div class="stat stat--blue">
             <div class="stat__icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></div>
-            <p class="stat__num"><span data-count="4.9" data-decimals="1">4.9</span><span class="stat__suffix stat__suffix--small">/ 5</span></p>
-            <p class="stat__label">Average client rating</p>
+            <p class="stat__num"><span data-count="4.9" data-decimals="1" data-edit="home.stat4Num">4.9</span><span class="stat__suffix stat__suffix--small">/ 5</span></p>
+            <p class="stat__label" data-edit="home.stat4Label">Average client rating</p>
           </div>
         </div>
       </div>
@@ -186,17 +206,17 @@
     <section class="section services" aria-labelledby="services-title">
       <div class="container">
         <div class="section-head reveal">
-          <h2 id="services-title">Two skill sets, one reliable partner</h2>
-          <p>Growth on one side, security on the other. You get a single person who understands both your brand and the network it runs on.</p>
+          <h2 id="services-title" data-edit="home.servicesTitle">Two skill sets, one reliable partner</h2>
+          <p data-edit="home.servicesIntro">Growth on one side, security on the other. You get a single person who understands both your brand and the network it runs on.</p>
         </div>
 
         <div class="tracks">
           <article class="track track--va reveal">
             <header class="track__head">
               <span class="track__badge"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-headphones"/></svg></span>
-              <h3>Virtual Assistant</h3>
+              <h3 data-edit="home.trackVaTitle">Virtual Assistant</h3>
             </header>
-            <p class="track__intro">Support that keeps your brand organized, active and growing.</p>
+            <p class="track__intro" data-edit="home.trackVaIntro">Support that keeps your brand organized, active and growing.</p>
             <ul>
               <li class="svc">
                 <span class="svc__icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
@@ -216,9 +236,9 @@
           <article class="track track--net reveal" style="--d:.14s">
             <header class="track__head">
               <span class="track__badge"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-network"/></svg></span>
-              <h3>Network Engineer</h3>
+              <h3 data-edit="home.trackNetTitle">Network Engineer</h3>
             </header>
-            <p class="track__intro">Fast, stable networks with advanced-level protection built in.</p>
+            <p class="track__intro" data-edit="home.trackNetIntro">Fast, stable networks with advanced-level protection built in.</p>
             <ul>
               <li class="svc">
                 <span class="svc__icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-network"/></svg></span>
@@ -246,44 +266,44 @@
     <section class="section work" aria-labelledby="work-title">
       <div class="container">
         <div class="section-head reveal">
-          <h2 id="work-title">Featured work</h2>
-          <p>A few recent projects across brand support and network engineering. (Sample thumbnails for now.)</p>
+          <h2 id="work-title" data-edit="home.workTitle">Featured work</h2>
+          <p data-edit="home.workIntro">A few recent projects across brand support and network engineering.</p>
         </div>
 
         <div class="work__grid">
           <div class="work__item work__item--wide reveal">
             <a class="work-card" href="portfolio.html#project-inbox">
-              <img src="assets/images/project-inbox.svg" width="800" height="600" loading="lazy" alt="Executive inbox and calendar system preview">
+              <img src="assets/images/project-inbox.svg" data-img-key="project:inbox" width="800" height="600" loading="lazy" alt="Executive inbox and calendar system preview">
               <div class="work-card__cap"><span class="tag tag--orange">Virtual Assistant</span><h3>Executive inbox &amp; calendar system</h3><span class="work-card__more">View project</span></div>
             </a>
           </div>
           <div class="work__item reveal" style="--d:.08s">
             <a class="work-card work-card--blue" href="portfolio.html#project-network">
-              <img src="assets/images/project-network.svg" width="800" height="600" loading="lazy" alt="Multi-site network topology preview">
+              <img src="assets/images/project-network.svg" data-img-key="project:network" width="800" height="600" loading="lazy" alt="Multi-site network topology preview">
               <div class="work-card__cap"><span class="tag tag--blue">Network</span><h3>Multi-site network redesign</h3><span class="work-card__more">View project</span></div>
             </a>
           </div>
           <div class="work__item reveal" style="--d:.16s">
             <a class="work-card work-card--blue" href="portfolio.html#project-firewall">
-              <img src="assets/images/project-firewall.svg" width="800" height="600" loading="lazy" alt="Firewall and VPN hardening preview">
+              <img src="assets/images/project-firewall.svg" data-img-key="project:firewall" width="800" height="600" loading="lazy" alt="Firewall and VPN hardening preview">
               <div class="work-card__cap"><span class="tag tag--blue">Security</span><h3>Firewall &amp; VPN hardening</h3><span class="work-card__more">View project</span></div>
             </a>
           </div>
           <div class="work__item reveal">
             <a class="work-card" href="portfolio.html#project-store">
-              <img src="assets/images/project-store.svg" width="800" height="600" loading="lazy" alt="Online store operations preview">
+              <img src="assets/images/project-store.svg" data-img-key="project:store" width="800" height="600" loading="lazy" alt="Online store operations preview">
               <div class="work-card__cap"><span class="tag tag--orange">Virtual Assistant</span><h3>Online store operations</h3><span class="work-card__more">View project</span></div>
             </a>
           </div>
           <div class="work__item reveal" style="--d:.08s">
             <a class="work-card" href="portfolio.html#project-social">
-              <img src="assets/images/project-social.svg" width="800" height="600" loading="lazy" alt="Social media and brand growth preview">
+              <img src="assets/images/project-social.svg" data-img-key="project:social" width="800" height="600" loading="lazy" alt="Social media and brand growth preview">
               <div class="work-card__cap"><span class="tag tag--orange">Brand growth</span><h3>Social media &amp; brand growth</h3><span class="work-card__more">View project</span></div>
             </a>
           </div>
           <div class="work__item work__item--wide reveal" style="--d:.16s">
             <a class="work-card" href="portfolio.html#project-leads">
-              <img src="assets/images/project-leads.svg" width="800" height="600" loading="lazy" alt="Lead generation and research dashboard preview">
+              <img src="assets/images/project-leads.svg" data-img-key="project:leads" width="800" height="600" loading="lazy" alt="Lead generation and research dashboard preview">
               <div class="work-card__cap"><span class="tag tag--orange">Virtual Assistant</span><h3>Lead generation &amp; research dashboard</h3><span class="work-card__more">View project</span></div>
             </a>
           </div>
@@ -295,93 +315,19 @@
       </div>
     </section>
 
-    <!-- ===================== 5. TESTIMONIALS ===================== -->
-    <section class="section testimonials" aria-labelledby="t-title">
-      <div class="container t-layout">
-        <div class="t-intro reveal">
-          <div class="section-head">
-            <h2 id="t-title">What clients say</h2>
-            <p>Sample quotes for now. Real client words will replace them.</p>
-          </div>
-          <div class="t-score">
-            <span class="t-score__num">4.9</span>
-            <div class="t-score__meta">
-              <div class="stars" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
-              </div>
-              Average rating from 7+ happy clients
-            </div>
-          </div>
-          <div class="t-controls">
-            <button class="round-btn" type="button" data-slider-prev aria-label="Previous testimonial"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
-            <button class="round-btn" type="button" data-slider-next aria-label="Next testimonial"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
-          </div>
-        </div>
-
-        <div class="slider reveal" style="--d:.12s" data-slider role="region" aria-roledescription="carousel" aria-label="Client testimonials" tabindex="0">
-          <div class="slider__viewport">
-            <div class="slider__track">
-              <figure class="t-card" role="group" aria-roledescription="slide" aria-label="1 of 3">
-                <svg class="i t-card__quote-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-quote"/></svg>
-                <blockquote>Jawad took over my inbox, calendar and daily follow-ups in the first week. I got hours back every day and nothing slipped through.</blockquote>
-                <figcaption class="t-card__foot">
-                  <span class="t-card__who"><span class="avatar avatar--orange" aria-hidden="true">SM</span><span><strong>Sarah Mitchell</strong><span class="t-card__role">Founder, Brightleaf Studio</span></span></span>
-                  <span class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></span>
-                </figcaption>
-              </figure>
-              <figure class="t-card" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
-                <svg class="i t-card__quote-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-quote"/></svg>
-                <blockquote>Our office network was slow and badly exposed. He redesigned it, locked down the firewall and explained every change in plain language.</blockquote>
-                <figcaption class="t-card__foot">
-                  <span class="t-card__who"><span class="avatar avatar--blue" aria-hidden="true">DR</span><span><strong>Daniel Roberts</strong><span class="t-card__role">Operations Lead, NovaCart</span></span></span>
-                  <span class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></span>
-                </figcaption>
-              </figure>
-              <figure class="t-card" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
-                <svg class="i t-card__quote-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-quote"/></svg>
-                <blockquote>He runs our brand channels as if they were his own. Quick to reply, consistent, and always thinking about what will actually bring in sales.</blockquote>
-                <figcaption class="t-card__foot">
-                  <span class="t-card__who"><span class="avatar avatar--orange" aria-hidden="true">AK</span><span><strong>Amira Khan</strong><span class="t-card__role">Marketing Director, Kestrel Labs</span></span></span>
-                  <span class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></span>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="slider__dots" role="group" aria-label="Choose testimonial"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 6. BRAND MARQUEE ===================== -->
-    <section class="section brands" aria-labelledby="brands-title">
-      <div class="container">
-        <div class="section-head section-head--center reveal">
-          <h2 id="brands-title">Brands I've collaborated with</h2>
-        </div>
-      </div>
-      <div class="marquee reveal" style="--d:.1s">
-        <ul class="marquee__track">
-          <li class="brand brand--heavy"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-bolt"/></svg>NovaCart</li>
-          <li class="brand brand--lower"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-leaf"/></svg>brightleaf</li>
-          <li class="brand brand--caps"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-chevrons"/></svg>Kestrel Labs</li>
-          <li class="brand brand--light"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-ring"/></svg>Orbit Studio</li>
-          <li class="brand"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-diamond"/></svg>Vantage &amp; Co</li>
-          <li class="brand brand--lower"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-sun"/></svg>lumen</li>
-          <li class="brand brand--heavy"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-hex"/></svg>Northwind</li>
-          <li class="brand brand--light"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#b-cube"/></svg>Pixelforge</li>
-        </ul>
-      </div>
-    </section>
+    <!-- Testimonials and "Brands I've collaborated with" were removed because they held
+         sample names, not real clients. Add them back only with real, permitted client
+         feedback and brand names (see README.txt). -->
 
     <!-- ===================== 7. CLOSING CALL TO ACTION ===================== -->
     <section class="section cta" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta__panel reveal">
-          <h2 id="cta-title">Let's turn your brand into your next success story</h2>
-          <p>Tell me what you're building. Whether you need a dependable virtual assistant, a secure network, or both, I'll reply with a clear plan.</p>
+          <h2 id="cta-title" data-edit="home.ctaTitle">Let's turn your brand into your next success story</h2>
+          <p data-edit="home.ctaText">Tell me what you're building. Whether you need a dependable virtual assistant, a secure network, or both, I'll reply with a clear plan.</p>
           <div class="cta__actions">
-            <a class="btn btn--primary" href="contact.html">Contact Me</a>
-            <a class="btn btn--ghost" href="mailto:jawadkhanmehsood@gmail.com"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg>Email Me</a>
+            <a class="btn btn--primary" href="contact.html" data-edit="home.ctaBtn1">Contact Me</a>
+            <a class="btn btn--ghost" href="mailto:jawadkhanmehsood@gmail.com" data-site="email-link-mail-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg><span data-edit="home.ctaBtn2">Email Me</span></a>
           </div>
         </div>
       </div>
@@ -399,13 +345,11 @@
             Jawad
           </a>
           <p>Virtual Assistant and Network Engineer helping brands grow profitably and stay securely connected.</p>
-          <!-- Social links are placeholders: update them here or later in the Admin Panel -->
           <div class="socials">
-            <a href="#" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
-            <a href="#" aria-label="GitHub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg></a>
-            <a href="#" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-facebook"/></svg></a>
-            <a href="#" aria-label="WhatsApp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+            <a href="mailto:jawadkhanmehsood@gmail.com" aria-label="Email Jawad"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg></a>
+            <!-- Add real profiles here when ready, e.g.:
+            <a href="https://www.linkedin.com/in/YOUR-NAME" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            Icons available: i-linkedin, i-github, i-instagram, i-facebook, i-whatsapp -->
           </div>
         </div>
 

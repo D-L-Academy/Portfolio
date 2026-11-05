@@ -1,66 +1,56 @@
 JAWAD PORTFOLIO WEBSITE
 =======================
-Status: Step 6 complete (Home + Portfolio + Services + About + Awards + Contact). Other pages are added one at a time.
+Live site (GitHub Pages): https://d-l-academy.github.io/Portfolio/
+If you move the site to a custom domain, replace that address in every
+page's <head> (canonical, og:url, og:image), in robots.txt, sitemap.xml,
+and the "/Portfolio/" paths inside 404.html.
 
-HOW TO VIEW
-  Unzip the folder, then double-click index.html to open it in your browser.
-  (Keep the folder structure as it is. An internet connection is needed only for the
-  Google Fonts; the site falls back to system fonts without it.)
+HOW TO VIEW LOCALLY
+  Unzip the folder and double-click index.html. Keep the folder structure as it is.
+  (404.html only works on the live site.)
+
+HOW TO UPDATE THE LIVE SITE
+  On GitHub: Add file -> Upload files -> drag in the changed files/folders
+  (keep the same folder names) -> Commit. The site updates in 1-2 minutes.
 
 FOLDER STRUCTURE
-  index.html                 Home page
-  portfolio.html             Portfolio page (filter tabs, project grid, lightbox)
-  services.html              Services page (five service cards)
-  about.html                 About page (story, animated timeline, skill meters)
-  awards.html                Awards & Achievements page (four achievement cards)
-  contact.html               Contact page (details + contact form)
-  css/style.css              SHARED design system: colours, fonts, nav, buttons, footer, background
-  css/home.css               Styles for the Home page only
-  css/portfolio.css          Styles for the Portfolio page only
-  css/services.css           Styles for the Services page only
-  css/about.css              Styles for the About page only
-  css/awards.css             Styles for the Awards page only
-  css/contact.css            Styles for the Contact page only
-  js/main.js                 SHARED script: nav menu, scroll reveal, background particles
-  js/home.js                 Home page script: counters, testimonial slider, brand marquee
-  js/projects-data.js        ALL portfolio projects live here (title, description, image, category)
-  js/portfolio.js            Portfolio page script: filters, staggered reveal, lightbox
-  js/services.js             Services page script: one-after-another card reveal
-  js/about.js                About page script: counters, timeline, skill meters
-  js/awards.js               Awards page script: each card reveals on its own
-  js/contact.js              Contact page script: form validation and sending
-  assets/images/             Placeholder headshot + sample project thumbnails
-  assets/favicon.svg         Browser tab icon
-
-NAVIGATION
-  Every page uses the same menu: Home, About, Services, Portfolio, Awards, Contact.
-  All six pages are live and linked.
-
-PORTFOLIO PAGE
-  Tabs: All, VA, Network Engineer, Different Language (add or edit projects in
-  js/projects-data.js; the Admin Panel will manage this list later).
-  Deep links: portfolio.html#va, #network, #language, or #project-<id> to open a project.
+  index.html, about.html, services.html, portfolio.html, awards.html, contact.html
+  404.html                   Friendly "page not found" page (GitHub Pages uses it automatically)
+  robots.txt, sitemap.xml    Help Google find and index every page
+  css/style.css              Shared design: colours, fonts, nav, buttons, footer
+  css/<page>.css             Styles for each page
+  js/main.js                 Shared: menu, scroll reveal, background particles, footer year
+  js/home.js, about.js, services.js, portfolio.js, awards.js, contact.js   Page scripts
+  js/projects-data.js        EDIT HERE: portfolio projects
+  js/services-data.js        EDIT HERE: services
+  js/awards-data.js          EDIT HERE: awards and achievements
+  assets/images/             Profile photo and project thumbnails
+  assets/og-image.jpg        Preview picture shown when the link is shared (WhatsApp, LinkedIn, Facebook)
+  assets/apple-touch-icon.png  Icon used when the site is saved to a phone's home screen
 
 CONTACT FORM
-  A website with no server cannot email you by itself. Right now, when a visitor presses
-  "Send Message", their email app opens with the message ready to send to
-  jawadkhanmehsood@gmail.com. To send straight from the site instead, paste a form-service
-  URL (for example a Formspree endpoint) into data-endpoint on the <form> in contact.html.
-  The Admin Panel step can set this up properly.
+  Right now "Send Message" opens the visitor's email app with the message ready
+  to send to jawadkhanmehsood@gmail.com. To receive messages directly instead:
+    1. Create a free form at https://formspree.io and copy its endpoint URL.
+    2. In contact.html, add  data-endpoint="YOUR-FORMSPREE-URL"  to the <form> tag.
 
-DESIGN SYSTEM (locked for every page)
-  Background   Charcoal      #131417  (surfaces #181a1e, #1d2025)
-  Accent 1     Ember orange  #ff6a1a  (light #ff9142)   = Virtual Assistant work
-  Accent 2     Electric blue #2f7bff  (light #5cc8ff)   = Network Engineering work
-  Text         #f3f0ea  (dim #b6bac2)
-  Headings     Sora (600-800)      Body  Manrope (400-700)
-  Motion       Soft blurred glowing shapes and particles that drift and pulse.
-               Fade + slide-in on scroll. No moving lines, scanning bars or sweeping light.
+SOCIAL LINKS
+  The footer shows only an email icon. When you have real profiles, open each
+  page, find the comment inside <div class="socials"> and add the links there.
 
-THINGS TO REPLACE LATER (Admin Panel will manage these)
-  - Profile photo:  assets/images/profile-placeholder.svg
-  - Project thumbnails: assets/images/project-*.svg (12 placeholders, referenced from js/projects-data.js)
-  - Testimonials, brand names in the marquee (currently sample content)
-  - Awards page: exact Cisco award name, the meetup's full name, and years/names for the two career highlights
-  - Skill meter percentages on the About page (92 / 90 / 88 are placeholders)
-  - Social links in the footer (currently "#"); WhatsApp number (shown as "available on request")
+CHANGES MADE IN THIS VERSION (Nov 2026)
+  - Removed the sample testimonials and "Brands I've collaborated with" strip
+    (they used invented names). Add them back only with real client feedback.
+  - Removed js/store.js: it was unused and contained a visible admin password.
+  - Removed 5 dead social icons (links pointing nowhere) on every page.
+  - Home "Years of experience" now 5+, matching the About page story.
+  - Clearer English in the Home tagline.
+  - Added SEO and link-preview tags, Google structured data, share image,
+    phone icon, 404 page, robots.txt and sitemap.xml.
+
+STILL TO CONFIRM (content only you can supply)
+  - Awards page: exact Cisco award name, the meetup's full name, and real
+    names/years for the two career highlights (js/awards-data.js).
+  - Skill meter percentages on the About page (92 / 90 / 88).
+  - Clients: Home says "7+ happy clients", About says "10+ clients served".
+  - Project thumbnails are illustrations; real screenshots look stronger.

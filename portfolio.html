@@ -10,6 +10,15 @@
   <meta property="og:description" content="Virtual assistance, network engineering and multilingual projects.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="author" content="Jawad">
+  <link rel="canonical" href="https://d-l-academy.github.io/Portfolio/portfolio.html">
+  <meta property="og:url" content="https://d-l-academy.github.io/Portfolio/portfolio.html">
+  <meta property="og:site_name" content="Jawad | Portfolio">
+  <meta property="og:image" content="https://d-l-academy.github.io/Portfolio/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,8 +99,8 @@
     <!-- ===================== PAGE HEADER ===================== -->
     <section class="page-hero" aria-labelledby="page-title">
       <div class="container">
-        <h1 id="page-title" class="rise" style="--d:.1s">My Portfolio</h1>
-        <p class="rise" style="--d:.3s">The work behind the numbers: brands supported, networks secured and messages carried across languages. Choose a category, then open any project to see what I did.</p>
+        <h1 id="page-title" class="rise" style="--d:.1s" data-edit="portfolio.heroTitle">My Portfolio</h1>
+        <p class="rise" style="--d:.3s" data-edit="portfolio.heroSubtitle">The work behind the numbers: brands supported, networks secured and messages carried across languages. Choose a category, then open any project to see what I did.</p>
       </div>
     </section>
 
@@ -118,8 +127,8 @@
     <section class="section cta" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta__panel reveal">
-          <h2 id="cta-title">Have a project in mind?</h2>
-          <p>Tell me what you need, whether it's a dependable virtual assistant, a secure network or support in another language, and I'll reply with a clear plan.</p>
+          <h2 id="cta-title" data-edit="portfolio.ctaTitle">Have a project in mind?</h2>
+          <p data-edit="portfolio.ctaText">Tell me what you need, whether it's a dependable virtual assistant, a secure network or support in another language, and I'll reply with a clear plan.</p>
           <div class="cta__actions">
             <a class="btn btn--primary" href="contact.html">Start a Project</a>
             <a class="btn btn--ghost" href="mailto:jawadkhanmehsood@gmail.com"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg>Email Me</a>
@@ -165,13 +174,11 @@
             Jawad
           </a>
           <p>Virtual Assistant and Network Engineer helping brands grow profitably and stay securely connected.</p>
-          <!-- Social links are placeholders: update them here or later in the Admin Panel -->
           <div class="socials">
-            <a href="#" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
-            <a href="#" aria-label="GitHub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg></a>
-            <a href="#" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-facebook"/></svg></a>
-            <a href="#" aria-label="WhatsApp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+            <a href="mailto:jawadkhanmehsood@gmail.com" aria-label="Email Jawad"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg></a>
+            <!-- Add real profiles here when ready, e.g.:
+            <a href="https://www.linkedin.com/in/YOUR-NAME" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            Icons available: i-linkedin, i-github, i-instagram, i-facebook, i-whatsapp -->
           </div>
         </div>
 
@@ -214,8 +221,8 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
   <script src="js/projects-data.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/portfolio.js"></script>
 </body>
 </html>
