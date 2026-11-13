@@ -1,56 +1,57 @@
-JAWAD PORTFOLIO WEBSITE
-=======================
-Live site (GitHub Pages): https://d-l-academy.github.io/Portfolio/
-If you move the site to a custom domain, replace that address in every
-page's <head> (canonical, og:url, og:image), in robots.txt, sitemap.xml,
-and the "/Portfolio/" paths inside 404.html.
+JAWAD - PORTFOLIO WEBSITE
+=========================
+Pages: Home, About, Services, Portfolio, Credentials, Contact (+ a 404 page).
+Design: dark theme, orange + blue accents, Sora / Manrope fonts.
 
-HOW TO VIEW LOCALLY
-  Unzip the folder and double-click index.html. Keep the folder structure as it is.
-  (404.html only works on the live site.)
+VIEW IT
+  Unzip and double-click index.html. Keep the folder structure as it is.
 
-HOW TO UPDATE THE LIVE SITE
-  On GitHub: Add file -> Upload files -> drag in the changed files/folders
-  (keep the same folder names) -> Commit. The site updates in 1-2 minutes.
+PUT IT ONLINE (GitHub Pages, free)
+  1. On GitHub create a new public repository (e.g. "muhammad-jawad").
+  2. Add file -> Upload files -> drag in everything INSIDE this folder -> Commit.
+  3. Settings -> Pages -> Source: "Deploy from a branch" -> main / (root) -> Save.
+  4. After 1-2 minutes the site is live at https://YOUR-USERNAME.github.io/REPO-NAME/
+  5. For the link preview picture on WhatsApp/Facebook, change
+     content="assets/og-image.jpg" in each page's <head> to the full address,
+     e.g. https://YOUR-USERNAME.github.io/REPO-NAME/assets/og-image.jpg
 
-FOLDER STRUCTURE
-  index.html, about.html, services.html, portfolio.html, awards.html, contact.html
-  404.html                   Friendly "page not found" page (GitHub Pages uses it automatically)
-  robots.txt, sitemap.xml    Help Google find and index every page
-  css/style.css              Shared design: colours, fonts, nav, buttons, footer
-  css/<page>.css             Styles for each page
-  js/main.js                 Shared: menu, scroll reveal, background particles, footer year
-  js/home.js, about.js, services.js, portfolio.js, awards.js, contact.js   Page scripts
-  js/projects-data.js        EDIT HERE: portfolio projects
-  js/services-data.js        EDIT HERE: services
-  js/awards-data.js          EDIT HERE: awards and achievements
-  assets/images/             Profile photo and project thumbnails
-  assets/og-image.jpg        Preview picture shown when the link is shared (WhatsApp, LinkedIn, Facebook)
-  assets/apple-touch-icon.png  Icon used when the site is saved to a phone's home screen
+WHERE TO EDIT CONTENT
+  js/services-data.js    Services cards
+  js/awards-data.js      Credentials page: education, certificates, awards
+  js/projects-data.js    Portfolio projects
+  assets/images/profile-photo.jpg   Your photo (keep a 4:5 portrait shape)
 
-CONTACT FORM
-  Right now "Send Message" opens the visitor's email app with the message ready
-  to send to jawadkhanmehsood@gmail.com. To receive messages directly instead:
-    1. Create a free form at https://formspree.io and copy its endpoint URL.
-    2. In contact.html, add  data-endpoint="YOUR-FORMSPREE-URL"  to the <form> tag.
+ADD CERTIFICATES (only real ones)
+  Open js/awards-data.js, copy one { ... } block and fill in the exact
+  certificate name, the issuer (e.g. Cisco, Microsoft, institute name) and the year.
+
+CONTACT FORM (messages come straight to your Gmail)
+  The form sends every message to jawadkhanmehsood@gmail.com through
+  FormSubmit (free, no account needed).
+  ONE-TIME SETUP after the site is online:
+    1. Open your live site, go to Contact and send yourself a test message.
+    2. Check Gmail (and the Spam folder) for an email from FormSubmit.
+    3. Click "Activate Form". Done - from now on every message arrives in Gmail.
+  Pressing "Reply" in Gmail answers the visitor directly.
+  Note: the form only works on the live website, not when index.html is
+  opened from your computer. If sending fails, visitors are offered a
+  ready-made email to you instead, so no message is lost.
+
+EMAIL LINKS
+  Every "Email Me" button and the email address open the visitor's email
+  app with jawadkhanmehsood@gmail.com already filled in.
+
+SMOOTH SCROLLING
+  Built in (js/main.js): mouse-wheel scrolling glides smoothly on computers;
+  phones keep their own natural scrolling. Animations pause when off-screen
+  so the site stays fast on slower devices.
+
+WHATSAPP
+  Number: +92 328 9308109 (link: https://wa.me/923289308109).
+  It appears on the Contact page, in the footer, and as the green floating
+  chat button on every page. Clicking opens WhatsApp with a greeting ready.
+  To change the number: replace 923289308109 in every .html file
+  (search and replace), keeping the 92 country code and no leading 0.
 
 SOCIAL LINKS
-  The footer shows only an email icon. When you have real profiles, open each
-  page, find the comment inside <div class="socials"> and add the links there.
-
-CHANGES MADE IN THIS VERSION (Nov 2026)
-  - Removed the sample testimonials and "Brands I've collaborated with" strip
-    (they used invented names). Add them back only with real client feedback.
-  - Removed js/store.js: it was unused and contained a visible admin password.
-  - Removed 5 dead social icons (links pointing nowhere) on every page.
-  - Home "Years of experience" now 5+, matching the About page story.
-  - Clearer English in the Home tagline.
-  - Added SEO and link-preview tags, Google structured data, share image,
-    phone icon, 404 page, robots.txt and sitemap.xml.
-
-STILL TO CONFIRM (content only you can supply)
-  - Awards page: exact Cisco award name, the meetup's full name, and real
-    names/years for the two career highlights (js/awards-data.js).
-  - Skill meter percentages on the About page (92 / 90 / 88).
-  - Clients: Home says "7+ happy clients", About says "10+ clients served".
-  - Project thumbnails are illustrations; real screenshots look stronger.
+  Find the comment inside <div class="socials"> on each page.
