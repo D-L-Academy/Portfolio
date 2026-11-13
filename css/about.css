@@ -203,3 +203,30 @@
   .meter__fill { width: var(--pct); }
   .meter__fill::after { opacity: 1; }
 }
+
+/* ---------- Living portrait (About) ---------- */
+.about-portrait { animation: portrait-float 6.5s ease-in-out 1.5s infinite; }
+.about-portrait__inner { position: relative; }
+.about-portrait__inner img { transform-origin: 50% 30%; animation: breathe 9s ease-in-out 1s infinite alternate; }
+.about-portrait__inner::after {
+  content: ""; position: absolute; inset: -20% -60%; pointer-events: none;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.16) 50%, transparent 58%);
+  transform: translateX(-70%); animation: shine 7s ease-in-out 2s infinite;
+}
+@keyframes portrait-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(0.6deg); } }
+@keyframes breathe { from { transform: scale(1); } to { transform: scale(1.07); } }
+@keyframes shine { 0%, 62% { transform: translateX(-70%); } 100% { transform: translateX(70%); } }
+@media (prefers-reduced-motion: reduce) {
+  .about-portrait, .about-portrait__inner img, .about-portrait__inner::after { animation: none; }
+}
+
+/* Performance: soft gradient glow, fades only (no live blur) */
+.about-portrait__glow { filter: none; inset: -18%;
+  background: radial-gradient(closest-side at 24% 80%, rgba(255, 106, 26, 0.5), transparent 100%), radial-gradient(closest-side at 80% 22%, rgba(47, 123, 255, 0.5), transparent 100%);
+  animation: about-glow-fade 7s ease-in-out infinite; }
+@keyframes about-glow-fade { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.95; } }
+.fact { background: rgba(255, 255, 255, 0.06); }
+.about-portrait__glow { inset: -30%; border-radius: 0;
+  background:
+    radial-gradient(29% 27% at 40% 67%, rgba(255, 106, 26, 0.45), rgba(255, 106, 26, 0.16) 55%, transparent 100%),
+    radial-gradient(29% 27% at 61% 32%, rgba(47, 123, 255, 0.45), rgba(47, 123, 255, 0.16) 55%, transparent 100%); }

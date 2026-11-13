@@ -59,7 +59,13 @@
 .svc-card:hover .svc-card__num { -webkit-text-stroke-color: var(--tint); }
 
 .svc-card__main { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-.svc-card__main .tag { align-self: flex-start; margin-top: 30px; }
+.svc-card__badges { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 30px; }
+.svc-card__main .tag { align-self: flex-start; margin-top: 0; }
+.svc-price {
+  display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: -0.01em;
+  color: #fff; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--line-strong);
+}
 .svc-card__title { margin-top: 16px; font-size: clamp(1.55rem, 2.6vw, 2.05rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; }
 .svc-card__desc { margin-top: 14px; color: var(--text-dim); font-size: 1.04rem; line-height: 1.7; max-width: 46ch; }
 

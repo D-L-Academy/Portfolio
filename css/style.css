@@ -378,6 +378,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   .footer__grid { grid-template-columns: 1fr; }
 }
 
+.loading-note { grid-column: 1 / -1; padding: 60px 0; text-align: center; color: var(--text-dim); }
+
 /* ==========================================================================
    ACCESSIBILITY — respect reduced-motion preference
    ========================================================================== */
@@ -387,3 +389,85 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   .js .reveal { opacity: 1; transform: none; }
   .particles { display: none; }
 }
+
+/* ==========================================================================
+   PERFORMANCE LAYER — keeps scrolling at a steady 60 fps on every device.
+   Same look, far less work for the graphics card:
+   - no full-screen blend layer, no live "glass" blur while scrolling
+   - glows are soft gradients (no blur filter re-drawn every frame)
+   - animations pause automatically when their section is off-screen
+   ========================================================================== */
+html.has-smooth { scroll-behavior: auto; }
+
+/* Film grain used a full-screen blend mode that repainted on every scroll frame */
+.grain { display: none; }
+
+/* Background: one isolated layer; two glows drift slowly, two stay still */
+.scene { contain: strict; }
+.blob { will-change: auto; }
+.blob--1 { animation: drift-1 34s ease-in-out infinite alternate; opacity: 0.8; will-change: transform; }
+.blob--2 { animation: drift-2 40s ease-in-out infinite alternate; opacity: 0.8; will-change: transform; }
+.blob--3, .blob--4 { animation: none; opacity: 0.7; }
+.particle { filter: none; will-change: auto; }
+
+/* Live backdrop blur is the most expensive effect while scrolling: replaced
+   by richer solid tints that look the same on this dark background */
+*, *::before, *::after { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.lightbox.is-open .lightbox__backdrop { -webkit-backdrop-filter: blur(8px) !important; backdrop-filter: blur(8px) !important; }
+:root { --glass: rgba(24, 26, 30, 0.9); }
+.nav.is-scrolled .nav__bar { background: rgba(17, 18, 21, 0.94); }
+.btn--ghost { --btn-bg: rgba(255, 255, 255, 0.06); }
+
+/* Scroll-in effects use only opacity + movement (GPU-friendly), no blur */
+.js .award, .js .p-item.reveal, .js .tl-card, .js .svc-item { filter: none !important; }
+/* Big pulsing card glows: compositor-only, static size */
+.svc-card::before, .svc-card--mix::after { will-change: opacity; }
+
+/* Animations sleep while their section is out of view */
+.is-paused, .is-paused *, .is-paused *::before, .is-paused *::after { animation-play-state: paused !important; }
+
+/* Back-to-top button */
+.to-top {
+  position: fixed; right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom)); z-index: 120;
+  width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--line-strong); background: rgba(24, 26, 30, 0.92); color: var(--text);
+  box-shadow: 0 16px 34px -14px rgba(0, 0, 0, 0.9);
+  opacity: 0; visibility: hidden; transform: translateY(14px);
+  transition: opacity 0.35s, transform 0.45s var(--ease-out), visibility 0.35s, border-color 0.25s, background 0.25s;
+}
+.to-top svg { width: 20px; height: 20px; transform: rotate(-90deg); }
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: rgba(255, 145, 66, 0.7); background: rgba(255, 106, 26, 0.18); }
+.to-top:focus-visible { outline: 2px solid var(--orange-hi); outline-offset: 3px; }
+@media (max-width: 520px) { .to-top { width: 44px; height: 44px; } }
+.cta__panel { background: rgba(22, 24, 28, 0.84); }
+
+/* Floating WhatsApp button (bottom-right, every page) */
+.wa-float {
+  position: fixed; right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom)); z-index: 121;
+  height: 56px; min-width: 56px; padding: 0 16px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0;
+  background: linear-gradient(145deg, #2fe07a, #1ebe5b); color: #fff;
+  box-shadow: 0 16px 34px -12px rgba(30, 190, 91, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  opacity: 0; transform: translateY(16px) scale(0.9);
+  animation: wa-in 0.7s var(--ease-out) 1.4s forwards;
+  transition: box-shadow 0.3s, gap 0.35s var(--ease-out), padding 0.35s var(--ease-out);
+}
+.wa-float svg { width: 26px; height: 26px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wa-float::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid rgba(47, 224, 122, 0.7);
+  animation: wa-ring 2.4s ease-out 2.4s 3; opacity: 0; pointer-events: none;
+}
+.wa-float__label { max-width: 0; overflow: hidden; white-space: nowrap; font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; transition: max-width 0.4s var(--ease-out); }
+.wa-float:hover, .wa-float:focus-visible { gap: 10px; padding: 0 20px 0 16px; box-shadow: 0 20px 40px -12px rgba(30, 190, 91, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+.wa-float:hover .wa-float__label, .wa-float:focus-visible .wa-float__label { max-width: 180px; }
+.wa-float:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+@keyframes wa-in { to { opacity: 1; transform: none; } }
+@keyframes wa-ring { 0% { opacity: 0.9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.45); } }
+/* Back-to-top sits just above the WhatsApp button */
+.has-wa .to-top { bottom: calc(max(18px, env(safe-area-inset-bottom)) + 68px); right: calc(max(18px, env(safe-area-inset-right)) + 3px); }
+@media (max-width: 520px) {
+  .wa-float { height: 52px; min-width: 52px; padding: 0 13px; }
+  .has-wa .to-top { bottom: calc(max(18px, env(safe-area-inset-bottom)) + 62px); right: calc(max(18px, env(safe-area-inset-right)) + 4px); }
+}
+@media (prefers-reduced-motion: reduce) { .wa-float { opacity: 1; transform: none; } }

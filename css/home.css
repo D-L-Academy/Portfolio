@@ -275,3 +275,36 @@
 .brand--light { font-weight: 300; letter-spacing: -0.02em; }
 .brand--heavy { font-weight: 800; }
 
+
+/* ---------- Living portrait: float, slow zoom, light sweep, mouse tilt ---------- */
+.hero__visual { perspective: 1200px; }
+.portrait { animation: portrait-float 6.5s ease-in-out 2.4s infinite; will-change: transform; }
+.portrait__tilt { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform 0.5s var(--ease-out);
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+.portrait__photo { transform-origin: 50% 30%; }
+.portrait__photo.is-live { animation: wipe 1.6s var(--ease-cinema) 0.5s forwards, breathe 9s ease-in-out 2.2s infinite alternate; }
+.portrait__inner::after {
+  content: ""; position: absolute; inset: -20% -60%; z-index: 1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.16) 50%, transparent 58%);
+  transform: translateX(-70%); animation: shine 7s ease-in-out 2.8s infinite;
+}
+@keyframes portrait-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(-0.6deg); } }
+@keyframes breathe { from { transform: scale(1); } to { transform: scale(1.07); } }
+@keyframes shine { 0%, 62% { transform: translateX(-70%); } 100% { transform: translateX(70%); } }
+@media (prefers-reduced-motion: reduce) {
+  .portrait, .portrait__photo.is-live, .portrait__inner::after { animation: none; }
+  .portrait__photo { clip-path: none; }
+}
+
+/* Performance: hero glow is a soft gradient that only fades (no live blur) */
+.portrait__glow { filter: none; inset: -18%;
+  background:
+    radial-gradient(closest-side at 22% 82%, rgba(255, 106, 26, 0.55), transparent 100%),
+    radial-gradient(closest-side at 80% 20%, rgba(47, 123, 255, 0.55), transparent 100%);
+  animation: glow-in 1.6s ease-out 0.5s forwards, glow-fade 7s ease-in-out 2.1s infinite; }
+@keyframes glow-fade { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.95; } }
+.chip { background: rgba(24, 26, 30, 0.92); }
+.portrait__glow { inset: -30%; border-radius: 0;
+  background:
+    radial-gradient(29% 27% at 40% 67%, rgba(255, 106, 26, 0.6), rgba(255, 106, 26, 0.22) 50%, transparent 100%),
+    radial-gradient(29% 27% at 61% 32%, rgba(47, 123, 255, 0.6), rgba(47, 123, 255, 0.22) 50%, transparent 100%); }

@@ -197,3 +197,4 @@ html.lb-open .nav { padding-right: var(--sbw, 0px); }
   .lightbox__backdrop, .lightbox__panel { transition-duration: 0.001s !important; }
   .js .p-item.reveal { opacity: 1; transform: none; filter: none; }
 }
+.filters { background: rgba(24, 26, 30, 0.92); }
