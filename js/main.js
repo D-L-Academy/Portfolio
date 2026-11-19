@@ -251,6 +251,27 @@
     });
     cg.innerHTML = html;
   }
+  var fxViz = document.querySelector('.viz--fx');
+  var fxCandles = cg ? Array.prototype.slice.call(cg.children) : [];
+  var fxTrend = fxViz && fxViz.querySelector('.trend');
+  var fxLen = fxTrend && fxTrend.getTotalLength ? Math.ceil(fxTrend.getTotalLength()) : 520;
+  if (fxTrend) { fxTrend.style.strokeDasharray = fxLen; fxTrend.style.strokeDashoffset = fxLen; }
+  // progress 0..1 follows how far the chart has scrolled up through the screen
+  function fxUpdate() {
+    if (!fxViz || !fxCandles.length) return;
+    var p;
+    if (reduced) p = 1;
+    else {
+      var r = fxViz.getBoundingClientRect(), vh = window.innerHeight;
+      if (!r.height) return; // tab not visible
+      var start = vh * 0.92, end = vh * 0.25;            // chart bottom enters -> chart top near the top
+      p = (start - r.top) / (start - end + r.height * 0.5);
+      p = Math.min(1, Math.max(0, p));
+    }
+    var n = fxCandles.length, shown = Math.round(p * n);
+    fxCandles.forEach(function (g, i) { g.classList.toggle('is-on', i < shown); });
+    if (fxTrend) fxTrend.style.strokeDashoffset = (fxLen * (1 - p)).toFixed(1);
+  }
 
   /* ---------- Expertise tabs ---------- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs__list [role="tab"]'));
@@ -261,6 +282,7 @@
       document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
     });
     if (focus) t.focus();
+    requestAnimationFrame(fxUpdate);
     if (t.scrollIntoView && t.parentElement.scrollWidth > t.parentElement.clientWidth) t.parentElement.scrollLeft = t.offsetLeft - 20;
   }
   tabs.forEach(function (t, i) {
@@ -308,6 +330,7 @@
       targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= innerHeight * 0.4) idx = i; });
       links.forEach(function (a, i) { a.classList.toggle('is-active', i === idx); });
       hsUpdate();
+      fxUpdate();
       ticking = false;
     });
   }

@@ -265,8 +265,12 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .viz--fx .grid path { stroke: rgba(92, 200, 255, .1); stroke-width: 1; }
 .viz--fx .candles rect, .viz--fx .candles line { transform-box: fill-box; transform-origin: bottom; }
 .viz--fx .trend { fill: none; stroke: var(--blue-hi); stroke-width: 3; stroke-dasharray: 520; stroke-dashoffset: 520; stroke-linecap: round; }
-.tabs__panel:not([hidden]) .viz--fx .trend { animation: draw 1.8s var(--ease) .3s forwards; }
-.tabs__panel:not([hidden]) .viz--fx .candles g { animation: grow .6s var(--ease) both; animation-delay: calc(var(--i) * 70ms); }
+/* Forex chart is driven by scrolling: candles appear going down, disappear going up */
+.viz--fx .candles g { opacity: 0; transform: translateY(14px) scaleY(.4); transform-box: fill-box; transform-origin: 50% 100%; transition: opacity .35s ease, transform .45s var(--ease); }
+.viz--fx .candles g.is-on { opacity: 1; transform: none; }
+.viz--fx .trend { transition: stroke-dashoffset .25s linear; }
+html:not(.js) .viz--fx .candles g { opacity: 1; transform: none; }
+html:not(.js) .viz--fx .trend { stroke-dashoffset: 0; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes grow { from { opacity: 0; transform: translateY(10px); } }
 .viz--it .screen { fill: var(--panel); stroke: var(--line-2); stroke-width: 2; }
