@@ -425,3 +425,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .edu__card--dit { grid-column: auto; }
 @media (max-width: 1100px) { .edu__card--matric { grid-column: auto; grid-row: span 2; } }
 @media (max-width: 600px) { .edu { grid-template-columns: 1fr; } .edu__card--matric { grid-row: auto; } }
+.courses--6 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .courses--6 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .courses--6 { grid-template-columns: 1fr; } }
