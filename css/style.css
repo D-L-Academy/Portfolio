@@ -46,10 +46,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .skip:focus { top: 16px; }
 
 /* ---------- Loader ---------- */
-.loader { position: fixed; inset: 0; z-index: 500; display: grid; place-content: center; gap: 22px; justify-items: center; background: var(--bg); transition: opacity .6s ease, visibility .6s; }
+.loader { position: fixed; inset: 0; z-index: 500; display: grid; place-content: center; gap: 22px; justify-items: center; background: var(--bg); transition: opacity .35s ease, visibility .35s; }
 .loader__mark { font-family: var(--f-display); font-weight: 800; font-size: 2.6rem; letter-spacing: -0.02em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; animation: pulse 1.2s ease-in-out infinite; }
 .loader__bar { width: 160px; height: 3px; border-radius: 3px; background: var(--line); overflow: hidden; }
-.loader__bar span { display: block; height: 100%; width: 100%; background: var(--grad); transform-origin: left; animation: load 1s var(--ease) forwards; }
+.loader__bar span { display: block; height: 100%; width: 100%; background: var(--grad); transform-origin: left; animation: load .45s var(--ease) forwards; }
 .loader.is-done { opacity: 0; visibility: hidden; }
 html:not(.js) .loader { display: none; }
 @keyframes load { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -145,7 +145,7 @@ html:not(.js) .hero__copy > *, html:not(.js) .split .ch { opacity: 1; transform:
 .badge .i { color: var(--blue-hi); width: 22px; height: 22px; }
 .badge--a { left: -38px; top: 14%; flex-direction: column; align-items: flex-start; gap: 0; animation-delay: -1s; }
 .badge--a strong { font-family: var(--f-display); font-size: 1.45rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.badge--a span { color: var(--muted); font-size: .82rem; }
+.badge--a > span { color: var(--muted); font-size: .82rem; }
 .badge--b { right: -44px; top: 52%; animation-delay: -3s; }
 .badge--c { left: -26px; bottom: 6%; animation-delay: -4.5s; }
 @keyframes float { 50% { transform: translateY(-10px); } }
@@ -405,7 +405,7 @@ html:not(.js) .viz--fx .trend { stroke-dashoffset: 0; }
 .yrs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; }
 .yrs li { padding: 14px; border-radius: 14px; background: rgba(255, 255, 255, .03); border: 1px solid var(--line); }
 .yrs strong { display: block; font-family: var(--f-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.yrs span { display: block; margin-top: 2px; color: var(--muted); font-size: .9rem; }
+.yrs li > span { display: block; margin-top: 2px; color: var(--muted); font-size: .9rem; }
 .courses--5 { grid-template-columns: repeat(5, 1fr); }
 .edu__big small { font-family: var(--f-body); font-weight: 600; font-size: .42em; letter-spacing: 0; }
 .viz--amz .card { fill: var(--panel); stroke: var(--line-2); stroke-width: 2; }

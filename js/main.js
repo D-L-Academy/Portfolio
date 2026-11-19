@@ -42,10 +42,10 @@
     document.body.classList.remove('is-loading');
     requestAnimationFrame(function () { document.body.classList.add('is-ready'); });
   }
-  var wait = (reduced || seen) ? 0 : 1100;
+  var wait = (reduced || seen) ? 0 : 450;
   if (document.readyState === 'complete') setTimeout(start, wait);
   else window.addEventListener('load', function () { setTimeout(start, wait); });
-  setTimeout(start, 3500); // never keep visitors waiting on a slow connection
+  setTimeout(start, 2000); // never keep visitors waiting on a slow connection
 
   /* ---------- Role rotator ---------- */
   var roles = Array.prototype.slice.call(document.querySelectorAll('.rotator__item'));
@@ -207,26 +207,39 @@
     el.style.fontVariantNumeric = 'tabular-nums';
     if (!reduced) el.textContent = fmt(0, el._dec, el._sep);
   });
+  // counts up every time a number comes into view, and resets when it leaves
   function countUp(el) {
-    if (el._done) return; el._done = true;
+    if (el._raf) cancelAnimationFrame(el._raf);
     if (reduced) { el.textContent = fmt(el._end, el._dec, el._sep); return; }
-    var t0 = null, dur = el._end >= 100 ? 2000 : 1500;
-    (function step(t) {
+    var t0 = null, dur = el._end >= 100 ? 1800 : 1400;
+    function step(t) {
       if (!t0) t0 = t;
       var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
       el.textContent = fmt(el._end * e, el._dec, el._sep);
-      if (p < 1) requestAnimationFrame(step);
-    })(performance.now());
+      el._raf = p < 1 ? requestAnimationFrame(step) : 0;
+    }
+    el._raf = requestAnimationFrame(step);
+  }
+  function resetCount(el) {
+    if (el._raf) cancelAnimationFrame(el._raf);
+    el._raf = 0; clearTimeout(el._wait);
+    if (!reduced) el.textContent = fmt(0, el._dec, el._sep);
   }
   if ('IntersectionObserver' in window) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
         var el = en.target;
-        // hero badges wait for the opening animation; everything else starts right away
-        var delay = el.closest('.hero') ? (document.body.classList.contains('is-ready') ? 900 : 2200) : 150;
-        setTimeout(function () { countUp(el); }, delay);
-        cio.unobserve(el);
+        if (en.isIntersecting) {
+          if (el._visible) return;
+          el._visible = true;
+          // hero badges wait for the opening animation the first time only
+          var delay = (el.closest('.hero') && !el._seen) ? (document.body.classList.contains('is-ready') ? 700 : 1200) : 80;
+          el._seen = true;
+          el._wait = setTimeout(function () { countUp(el); }, delay);
+        } else if (el._visible) {
+          el._visible = false;
+          resetCount(el);
+        }
       });
     }, { threshold: 0.6 });
     counters.forEach(function (el) { cio.observe(el); });
