@@ -439,3 +439,14 @@ html:not(.js) .viz--fx .trend { stroke-dashoffset: 0; }
 .copy { margin-left: auto; flex: none; appearance: none; cursor: pointer; padding: 7px 12px; border-radius: 10px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); font: 600 .85rem var(--f-body); transition: color .2s, border-color .2s, background .2s; }
 .copy:hover { color: var(--text); border-color: var(--blue-hi); }
 .copy.is-done { color: #4fe08a; border-color: rgba(79, 224, 138, .5); }
+
+/* ---------- Forex chart: trading-screen look ---------- */
+.viz--fx .screen { fill: #0a0d0b; stroke: rgba(34, 224, 90, .18); stroke-width: 1.5; }
+.viz--fx .grid path { stroke: rgba(120, 200, 210, .14); stroke-width: 1; }
+.viz--fx .live { opacity: 0; transition: opacity .4s ease; }
+.viz--fx .live.is-on { opacity: 1; }
+.viz--fx .live__line { stroke: rgba(34, 224, 90, .55); stroke-width: 1; stroke-dasharray: 4 5; }
+.viz--fx .live__dot { fill: #22e05a; animation: live-pulse 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.viz--fx .live__tag rect { fill: #22e05a; }
+.viz--fx .live__tag text { font: 800 11px var(--f-body); fill: #04130a; text-anchor: middle; letter-spacing: .06em; }
+@keyframes live-pulse { 50% { transform: scale(1.8); opacity: .45; } }

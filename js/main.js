@@ -283,19 +283,28 @@
   /* ---------- Forex chart candles ---------- */
   var cg = document.querySelector('.viz--fx .candles');
   if (cg) {
-    // a market that rises in zigzag swings: higher highs, higher lows
-    var closes = [252, 228, 204, 182, 212, 240, 214, 186, 158, 136, 170, 204, 172, 138, 110, 90, 124, 150, 112, 82, 60, 46];
-    var open0 = 262, n = closes.length, step = 330 / n, w = Math.max(7, step * 0.58), html = '', pts = [];
-    closes.forEach(function (cl, i) {
-      var op = i ? closes[i - 1] : open0, x = 40 + i * step, up = cl < op;
-      var top = Math.min(op, cl), h = Math.max(4, Math.abs(op - cl));
-      var col = up ? '#22c55e' : '#ef4444';
-      var wickTop = top - (6 + (i * 7) % 9), wickBot = top + h + (5 + (i * 5) % 8);
-      html += '<g style="--i:' + i + '"><line x1="' + (x + w / 2).toFixed(1) + '" x2="' + (x + w / 2).toFixed(1) + '" y1="' + wickTop + '" y2="' + wickBot + '" stroke="' + col + '" stroke-width="2" stroke-linecap="round"/><rect x="' + x.toFixed(1) + '" y="' + top + '" width="' + w.toFixed(1) + '" height="' + h + '" rx="2" fill="' + col + '"/></g>';
-      pts.push((x + w / 2).toFixed(1) + ' ' + cl);
-    });
-    var trendEl = document.querySelector('.viz--fx .trend');
-    if (trendEl) trendEl.setAttribute('d', 'M' + pts.join(' L'));
+    // a believable market: runs of green and red candles, overall rising
+    var moves = [-12, -9, 6, -14, -10, 9, 13, 5, -16, -8, 7, -15, -19, 12, 6, -9, -17, -11, 14, 8, -10, -21, -13, 10, 7, -16, -20, -9];
+    var seed = 7; function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    var raw = [0]; moves.forEach(function (m) { raw.push(raw[raw.length - 1] + m); });
+    var lo = Math.min.apply(null, raw), hi = Math.max.apply(null, raw), top0 = 52, bot0 = 262;
+    var ys = raw.map(function (v) { return top0 + (v - lo) / (hi - lo) * (bot0 - top0); });
+    var n = moves.length, step = 360 / n, w = step * 0.66, html = '';
+    for (var i = 0; i < n; i++) {
+      var op = ys[i] + (rnd() - .5) * 2, cl = ys[i + 1], up = cl < op, x = 18 + i * step;
+      var top = Math.min(op, cl), h = Math.max(3, Math.abs(op - cl));
+      var col = up ? '#22e05a' : '#ff3b2f';
+      var wt = top - (2 + rnd() * 9), wb = top + h + (2 + rnd() * 9);
+      html += '<g style="--i:' + i + '"><line x1="' + (x + w / 2).toFixed(1) + '" x2="' + (x + w / 2).toFixed(1) + '" y1="' + wt.toFixed(1) + '" y2="' + wb.toFixed(1) + '" stroke="' + col + '" stroke-width="1.6" stroke-linecap="round"/><rect x="' + x.toFixed(1) + '" y="' + top.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="1.5" fill="' + col + '"/></g>';
+    }
+    // live price marker sits on the last close
+    var live = document.querySelector('.viz--fx .live');
+    if (live) {
+      var lastY = ys[n].toFixed(1), lastX = (18 + (n - 1) * step + w / 2).toFixed(1);
+      live.querySelector('.live__line').setAttribute('y1', lastY); live.querySelector('.live__line').setAttribute('y2', lastY);
+      live.querySelector('.live__dot').setAttribute('cx', lastX); live.querySelector('.live__dot').setAttribute('cy', lastY);
+      live.querySelector('.live__tag').setAttribute('transform', 'translate(' + Math.min(346, +lastX - 52) + ' ' + Math.max(16, lastY - 20) + ')');
+    }
     cg.innerHTML = html;
   }
   var fxViz = document.querySelector('.viz--fx');
@@ -311,13 +320,14 @@
     else {
       var r = fxViz.getBoundingClientRect(), vh = window.innerHeight;
       if (!r.height) return; // tab not visible
-      var start = vh * 0.92, end = vh * 0.25;            // chart bottom enters -> chart top near the top
-      p = (start - r.top) / (start - end + r.height * 0.5);
+      var start = vh * 0.95, end = vh * 0.42;            // chart top enters -> chart top a little above the middle
+      p = (start - r.top) / (start - end);
       p = Math.min(1, Math.max(0, p));
     }
     var n = fxCandles.length, shown = Math.round(p * n);
     fxCandles.forEach(function (g, i) { g.classList.toggle('is-on', i < shown); });
     if (fxTrend) fxTrend.style.strokeDashoffset = (fxLen * (1 - p)).toFixed(1);
+    var lv = fxViz.querySelector('.live'); if (lv) lv.classList.toggle('is-on', shown >= n);
   }
 
   /* ---------- Expertise tabs ---------- */

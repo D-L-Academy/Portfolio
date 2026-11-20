@@ -298,9 +298,15 @@
             <ul class="chips"><li>ICT</li><li>SMC</li><li>Price action</li><li>Market structure</li><li>Liquidity</li><li>Risk management</li></ul>
           </div>
           <svg class="viz viz--fx" viewBox="0 0 400 300" aria-hidden="true">
-            <g class="grid"><path d="M30 60H370M30 120H370M30 180H370M30 240H370"/></g>
-            <g class="candles"></g>
-            <path class="trend" d="M40 240 C 140 210, 230 150, 370 70"/>
+            <defs>
+              <radialGradient id="fx-glow" cx="92%" cy="18%" r="70%"><stop offset="0" stop-color="#22e05a" stop-opacity=".22"/><stop offset="1" stop-color="#22e05a" stop-opacity="0"/></radialGradient>
+              <filter id="fx-neon" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect class="screen" x="4" y="4" width="392" height="292" rx="16"/>
+            <rect x="4" y="4" width="392" height="292" rx="16" fill="url(#fx-glow)"/>
+            <g class="grid"><path d="M4 64H396M4 124H396M4 184H396M4 244H396"/><path d="M68 4V296M132 4V296M196 4V296M260 4V296M324 4V296"/></g>
+            <g class="candles" filter="url(#fx-neon)"></g>
+            <g class="live"><line class="live__line" x1="4" x2="396" y1="0" y2="0"/><circle class="live__dot" r="4"/><g class="live__tag"><rect x="0" y="-11" width="46" height="22" rx="6"/><text x="23" y="4">LIVE</text></g></g>
           </svg>
         </div>
 
