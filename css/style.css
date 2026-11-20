@@ -222,8 +222,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .transcript tfoot strong { font-family: var(--f-display); font-size: 1.15rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .t-bar { width: 34%; text-align: right !important; }
 .bar { display: block; height: 8px; border-radius: 6px; background: var(--line); position: relative; overflow: hidden; }
-.bar::after { content: ""; position: absolute; inset: 0; width: var(--w); border-radius: inherit; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease) .3s; }
-.is-in .bar::after { transform: scaleX(1); }
+.bar::after { content: ""; position: absolute; inset: 0; width: var(--w); border-radius: inherit; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: none; }
+.bar.is-full::after { transform: scaleX(1); transition: transform 1.4s var(--ease) .15s; }
+html:not(.js) .bar::after { transform: scaleX(1); }
 .sems { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
 .sems span { display: grid; place-items: center; height: 34px; border-radius: 9px; border: 1px solid var(--line); color: var(--dim); font-weight: 700; font-size: .85rem; }
 .sems .done { background: rgba(47, 123, 255, .2); border-color: rgba(47, 123, 255, .4); color: var(--blue-hi); }
@@ -432,3 +433,9 @@ html:not(.js) .viz--fx .trend { stroke-dashoffset: 0; }
 .courses--6 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .courses--6 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .courses--6 { grid-template-columns: 1fr; } }
+
+/* Email row with copy button */
+.cta__email a { min-width: 0; overflow-wrap: anywhere; }
+.copy { margin-left: auto; flex: none; appearance: none; cursor: pointer; padding: 7px 12px; border-radius: 10px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); font: 600 .85rem var(--f-body); transition: color .2s, border-color .2s, background .2s; }
+.copy:hover { color: var(--text); border-color: var(--blue-hi); }
+.copy.is-done { color: #4fe08a; border-color: rgba(79, 224, 138, .5); }

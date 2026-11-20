@@ -245,6 +245,34 @@
     counters.forEach(function (el) { cio.observe(el); });
   } else { counters.forEach(countUp); }
 
+  /* ---------- Score bars fill every time they come into view ---------- */
+  var bars = Array.prototype.slice.call(document.querySelectorAll('.bar'));
+  if ('IntersectionObserver' in window && bars.length) {
+    var bio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('is-full', en.isIntersecting); });
+    }, { threshold: 0.6 });
+    bars.forEach(function (b) { bio.observe(b); });
+  } else { bars.forEach(function (b) { b.classList.add('is-full'); }); }
+
+  /* ---------- Email: Gmail compose on computers, email app on phones ---------- */
+  var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  document.querySelectorAll('a[data-email]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (isMobile) return; // phones open their email app through mailto
+      e.preventDefault();
+      var url = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(a.getAttribute('data-email')) + '&su=' + encodeURIComponent('Hello Jawad');
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy'), label = b.textContent;
+      function done() { b.textContent = 'Copied'; b.classList.add('is-done'); setTimeout(function () { b.textContent = label; b.classList.remove('is-done'); }, 1800); }
+      function fallback() { var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (err) {} document.body.removeChild(ta); done(); }
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+    });
+  });
+
   /* ---------- Spotlight panels ---------- */
   document.querySelectorAll('.tile, .edu__card, .course, .svc__item, .xp, .tabs__panel').forEach(function (el) {
     el.classList.add('spot');
@@ -255,13 +283,19 @@
   /* ---------- Forex chart candles ---------- */
   var cg = document.querySelector('.viz--fx .candles');
   if (cg) {
-    var data = [[230, 214], [216, 222], [222, 200], [200, 206], [206, 186], [186, 192], [192, 170], [170, 160], [160, 172], [172, 148], [148, 136], [136, 142], [142, 118], [118, 100], [100, 110], [110, 84]];
-    var html = '';
-    data.forEach(function (d, i) {
-      var x = 44 + i * 20, up = d[1] < d[0], top = Math.min(d[0], d[1]), h = Math.max(5, Math.abs(d[0] - d[1]));
-      var col = up ? '#5cc8ff' : '#ff6a1a';
-      html += '<g style="--i:' + i + '"><line x1="' + (x + 6) + '" x2="' + (x + 6) + '" y1="' + (top - 10) + '" y2="' + (top + h + 10) + '" stroke="' + col + '" stroke-width="2" stroke-linecap="round"/><rect x="' + x + '" y="' + top + '" width="12" height="' + h + '" rx="3" fill="' + col + '"/></g>';
+    // a market that rises in zigzag swings: higher highs, higher lows
+    var closes = [252, 228, 204, 182, 212, 240, 214, 186, 158, 136, 170, 204, 172, 138, 110, 90, 124, 150, 112, 82, 60, 46];
+    var open0 = 262, n = closes.length, step = 330 / n, w = Math.max(7, step * 0.58), html = '', pts = [];
+    closes.forEach(function (cl, i) {
+      var op = i ? closes[i - 1] : open0, x = 40 + i * step, up = cl < op;
+      var top = Math.min(op, cl), h = Math.max(4, Math.abs(op - cl));
+      var col = up ? '#22c55e' : '#ef4444';
+      var wickTop = top - (6 + (i * 7) % 9), wickBot = top + h + (5 + (i * 5) % 8);
+      html += '<g style="--i:' + i + '"><line x1="' + (x + w / 2).toFixed(1) + '" x2="' + (x + w / 2).toFixed(1) + '" y1="' + wickTop + '" y2="' + wickBot + '" stroke="' + col + '" stroke-width="2" stroke-linecap="round"/><rect x="' + x.toFixed(1) + '" y="' + top + '" width="' + w.toFixed(1) + '" height="' + h + '" rx="2" fill="' + col + '"/></g>';
+      pts.push((x + w / 2).toFixed(1) + ' ' + cl);
     });
+    var trendEl = document.querySelector('.viz--fx .trend');
+    if (trendEl) trendEl.setAttribute('d', 'M' + pts.join(' L'));
     cg.innerHTML = html;
   }
   var fxViz = document.querySelector('.viz--fx');
